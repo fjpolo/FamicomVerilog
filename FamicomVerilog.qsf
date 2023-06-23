@@ -59,18 +59,14 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH tb_alu_inputs -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH tb_registers_pc_sel -section_id eda_simulation
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name EDA_TEST_BENCH_NAME tb_alu_inputs -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tb_alu_inputs
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tb_alu_inputs -section_id tb_alu_inputs
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name EDA_TEST_BENCH_FILE src/cpu/constants.sv -section_id tb_alu_inputs
-set_global_assignment -name EDA_TEST_BENCH_FILE src/cpu/enums.sv -section_id tb_alu_inputs
-set_global_assignment -name EDA_TEST_BENCH_FILE src/cpu/alu_inputs.sv -section_id tb_alu_inputs
-set_global_assignment -name EDA_TEST_BENCH_FILE src/cpu/tb_alu_inputs.sv -section_id tb_alu_inputs
+set_global_assignment -name SYSTEMVERILOG_FILE src/cpu/tb_registers_pc_sel.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/cpu/tb_registers_sb_sel.sv
+set_global_assignment -name SYSTEMVERILOG_FILE src/cpu/registers.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/cpu/tb_alu.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/cpu/alu.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/cpu/cpu.sv
@@ -78,3 +74,10 @@ set_global_assignment -name SYSTEMVERILOG_FILE src/cpu/tb_alu_inputs.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/cpu/alu_inputs.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/cpu/constants.sv
 set_global_assignment -name SYSTEMVERILOG_FILE src/cpu/enums.sv
+set_global_assignment -name EDA_TEST_BENCH_NAME tb_registers_pc_sel -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tb_registers_pc_sel
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tb_registers_pc_sel -section_id tb_registers_pc_sel
+set_global_assignment -name EDA_TEST_BENCH_FILE src/cpu/constants.sv -section_id tb_registers_pc_sel
+set_global_assignment -name EDA_TEST_BENCH_FILE src/cpu/enums.sv -section_id tb_registers_pc_sel
+set_global_assignment -name EDA_TEST_BENCH_FILE src/cpu/registers.sv -section_id tb_registers_pc_sel
+set_global_assignment -name EDA_TEST_BENCH_FILE src/cpu/tb_registers_pc_sel.sv -section_id tb_registers_pc_sel
